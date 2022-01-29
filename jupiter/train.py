@@ -16,7 +16,7 @@ import pickle
 niks = [1, 2, 3, 4]
 
 EPOCHS = 175
-BATCH_SIZE = 2048*8
+BATCH_SIZE = 2048*6
 LEARNING_RATE = 0.00001
 
 INPUT_LAYER = 6006
@@ -27,8 +27,6 @@ for nik in niks:
 
     with open('indexes.pickle', 'rb') as f:
         indexeeeees = pickle.load(f)
-
-
 
     df['positive'].fillna(' ',inplace=True)
     df['negative'].fillna(' ',inplace=True)
