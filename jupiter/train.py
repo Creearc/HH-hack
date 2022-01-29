@@ -17,6 +17,9 @@ nik = 1
 #CHANGE IT
 df = pd.read_csv('train_0{}.csv'.format(nik))
 
+df['positive'].fillna(' ',inplace=True)
+df['negative'].fillna(' ',inplace=True)
+
 def feature_engineering(ds,c):
     t = TfidfVectorizer(ngram_range=(1, 3),max_features = 3000, dtype=np.float32)
     tres = t.fit_transform(ds[c])
