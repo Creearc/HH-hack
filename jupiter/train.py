@@ -10,12 +10,18 @@ from torch.utils.data import Dataset, DataLoader
 
 from sklearn.model_selection import train_test_split
 
+import pickle
 
 #CHANGE IT TO SELECT CLASS
 nik = 1
 
 #CHANGE IT
 df = pd.read_csv('train_0{}.csv'.format(nik))
+
+with open('indexes.pickle', 'rb') as f:
+    indexeeeees = pickle.load(f)
+
+df = df.iloc[indexeeeees,:]
 
 df['positive'].fillna(' ',inplace=True)
 df['negative'].fillna(' ',inplace=True)
