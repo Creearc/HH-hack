@@ -164,3 +164,4 @@ for e in range(1, EPOCHS+1):
 
     print(f'Epoch {e+0:03}: | Loss_train: {epoch_loss/len(train_loader):.5f} | F1_train: {epoch_acc/len(train_loader):.3f}| Loss_valid: {epoch_loss_valid/len(test_loader):.5f} | F1_valid: {epoch_acc_valid/len(test_loader):.3f}')
     
+torch.save(model.state_dict(), 'trained_model_0{}.pth'.format(nik))
