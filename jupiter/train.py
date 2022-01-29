@@ -16,8 +16,10 @@ import pickle
 niks = [1, 2, 3, 4]
 
 EPOCHS = 175
-BATCH_SIZE = 2048*10
+BATCH_SIZE = 2048*8
 LEARNING_RATE = 0.00001
+
+INPUT_LAYER = 6006
 
 for nik in niks:
     #CHANGE IT
@@ -76,9 +78,9 @@ for nik in niks:
     class NClassifierLP(nn.Module):
         def __init__(self):
             super(NClassifierLP, self).__init__()
-            self.layer_1 = nn.Linear(6006, 12012) 
-            self.layer_2 = nn.Linear(12012, 6006)
-            self.layer_3 = nn.Linear(6006, 9)
+            self.layer_1 = nn.Linear(INPUT_LAYER, INPUT_LAYER * 2) 
+            self.layer_2 = nn.Linear(INPUT_LAYER * 2, INPUT_LAYER)
+            self.layer_3 = nn.Linear(INPUT_LAYER, 9)
             self.layer_out = nn.Linear(9, 1) 
             
             self.tanh = nn.Tanh()
