@@ -21,7 +21,7 @@ df = pd.read_csv('train_0{}.csv'.format(nik))
 with open('indexes.pickle', 'rb') as f:
     indexeeeees = pickle.load(f)
 
-df = df.iloc[indexeeeees,:]
+
 
 df['positive'].fillna(' ',inplace=True)
 df['negative'].fillna(' ',inplace=True)
@@ -37,10 +37,12 @@ def feature_engineering(ds,c):
     return (ds,t)
 
 X = df.iloc[:, 4:-1]
-y = df.iloc[:, -1]
+y = df.iloc[indexeeeees, -1]
 
 X, p_tf = feature_engineering(X,'positive')
 X, n_tf = feature_engineering(X,'negative')
+
+X = X.iloc[indexeeeees,:]
 
 EPOCHS = 75
 BATCH_SIZE = 2048*2
@@ -132,3 +134,9 @@ for e in range(1, EPOCHS+1):
 
     print(f'Epoch {e+0:03}: | Loss_train: {epoch_loss/len(train_loader):.5f} | F1_train: {epoch_acc/len(train_loader):.3f}')
     
+torch.save(model.state_dict(), 'trained_model_0{}.pth'.format(nik))
+
+with open('tf_pos.pickle', "wb") as f:
+    pickle.dump(p_tf, f)
+with open('tf_neg.pickle', "wb") as f:
+    pickle.dump(n_tf, f)   
