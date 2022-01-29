@@ -15,7 +15,7 @@ import pickle
 #CHANGE IT TO SELECT CLASS
 niks = [1, 2, 3, 4]
 
-for nic in nics:
+for nik in niks:
     #CHANGE IT
     df = pd.read_csv('train_0{}.csv'.format(nik))
 
