@@ -41,10 +41,10 @@ del tr
 del tst
 del df
 
-X_train = train.loc[:,0:-1]
-y_train = train.loc[:,-1]
-X_test = test.loc[:,0:-1]
-y_test = test.loc[:,-1]
+X_train = train.iloc[:,0:-1]
+y_train = train.iloc[:,-1]
+X_test = test.iloc[:,0:-1]
+y_test = test.iloc[:,-1]
 
 del train
 del test
