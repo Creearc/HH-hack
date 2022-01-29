@@ -15,6 +15,10 @@ import pickle
 #CHANGE IT TO SELECT CLASS
 niks = [1, 2, 3, 4]
 
+EPOCHS = 175
+BATCH_SIZE = 2048*10
+LEARNING_RATE = 0.00001
+
 for nik in niks:
     #CHANGE IT
     df = pd.read_csv('train_0{}.csv'.format(nik))
@@ -45,9 +49,7 @@ for nik in niks:
 
     X = X.iloc[indexeeeees,:]
 
-    EPOCHS = 75
-    BATCH_SIZE = 2048*3
-    LEARNING_RATE = 0.00001
+    
 
     class LoadData(Dataset):
         
