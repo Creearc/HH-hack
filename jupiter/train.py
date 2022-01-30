@@ -14,6 +14,7 @@ import pickle
 
 #CHANGE IT TO SELECT CLASS
 niks = [1, 2, 3, 4]
+#niks = [5, 6, 7, 8]
 
 EPOCHS = 300
 BATCH_SIZE = 2048*6
