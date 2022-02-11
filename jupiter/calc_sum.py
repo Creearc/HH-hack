@@ -19,4 +19,4 @@ for s in f:
 
 print(mx)
 print(tmp)
-print(i)
+print(ind)
